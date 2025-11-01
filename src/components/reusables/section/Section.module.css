@@ -1,0 +1,26 @@
+
+
+.section-wrapper {
+  width: 100%;
+  /* border: 1px solid; */
+}
+.section-head {
+  display: flex;
+  gap: 20px;
+  padding: 10px 2px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+
+}
+
+.section-desc {
+  color: grey;
+}
+
+.section-content {
+  display: flex;
+  
+}

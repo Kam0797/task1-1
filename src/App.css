@@ -1,0 +1,11 @@
+
+
+.text-input {
+  background-color: #f0f1f3;
+  font-size: 1rem;
+  padding: 12px;
+  resize: none;
+  /* border: 1px dotted; */
+  border-radius: 7px;
+  width: calc(100% - 24px);
+}
