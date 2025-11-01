@@ -7,5 +7,6 @@
   resize: none;
   /* border: 1px dotted; */
   border-radius: 7px;
-  width: calc(100% - 24px);
+  width: calc(100% );
+  box-sizing: border-box;
 }

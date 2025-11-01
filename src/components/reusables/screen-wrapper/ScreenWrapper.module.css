@@ -47,6 +47,9 @@
   display: flex;
   flex-direction: column;
   gap: 35px;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 
 .next-button {

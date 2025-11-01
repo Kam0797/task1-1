@@ -1,26 +1,50 @@
-import { useState } from 'react'
-import styles from './Section.module.css'
+import { useState } from "react";
+import styles from "./Section.module.css";
+// import TextField from '../text-field/TextField';
 
-export default function Section({sectionTitle, sectionDesc, child, addChild, addButtonLabel, children}) {
+export default function Section({
+  sectionTitle,
+  sectionDesc,
+  Child,
+  childValue,
+  addButtonLabel,
+  children,
+}) {
+  const [items, setItems] = useState([childValue, childValue]);
 
-  const [items, setItems] = useState([]);
-
-  function addChild(child) {
-    setItems(prev => [...prev, child])
+  function addChild() {
+    setItems((prev) => [...prev, childValue]);
   }
 
-  return(
+  return (
     <>
-    <div className={styles.sectionWrapper}>
+      <div className={styles.sectionWrapper}>
         <div className={styles.sectionHead}>
           <div className={styles.sectionTitle}>{sectionTitle}</div>
           <div className={styles.sectionDesc}>{sectionDesc}</div>
-          <button className={styles.actionButton} onClick={()=> addChild(child)}>{addButtonLabel}</button>
+          <button className={styles.actionButton} onClick={() => addChild()}>
+            {addButtonLabel}
+          </button>
         </div>
         <div className={styles.sectionContent}>
-          {children ?? items.map((index,item) => <input type='text' key={index} value={item} onInput={(e)=>setItems(prev => prev.map((index,item)=> {if(e.target.key == index) return e.target.value; else return item}))}/>)}
+          {children ??
+            items.map((item, index) => {
+              let isLastItem = false;
+              if(index == items.length-1) isLastItem = true;
+
+              return <Child
+                initVal={item}
+                index={`${sectionTitle}${index}`}
+                setItems={setItems}
+                isLastItem={isLastItem}
+              />
+})}
         </div>
       </div>
     </>
-  )
+  );
+}
+
+{
+  /* <input type='text' key={index} id={`${sectionTitle}${index}`} value={item.value}} */
 }

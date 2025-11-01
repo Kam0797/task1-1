@@ -1,0 +1,10 @@
+
+.delete-button {
+  position: absolute;
+  background-color: #fa394e;
+  color: #fff;
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 0 7px 7px 0;
+  right: 0;
+}
