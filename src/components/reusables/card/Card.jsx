@@ -7,10 +7,8 @@ export default function Card({path=null, desc="A cool Product", price, id=null})
   const {setScreen} = useContext(Context)
 
   function handleNav() {
-    console.log("id",id)
     if (!id) return
     sessionStorage.setItem("activeID", id)
-    console.log("SS:", sessionStorage.getItem("activeID"))
     setScreen("product")
   }
 

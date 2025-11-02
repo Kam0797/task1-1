@@ -13,7 +13,6 @@ export default function Home() {
   
   async function loadPosts() {
     const posts = await getPosts()
-    console.log("postssss", posts)
     setLoadedPosts(posts)
   }
   function addFunc() {
@@ -32,7 +31,6 @@ export default function Home() {
       <ScreenWrapper screenTitle='Digital Products' nextButtonText='' addFunc={addFunc} >
         {
           loadedPosts?.map(post => {
-            console.log("depug: ", post, "pC:", typeof post.photos[0], URL.createObjectURL(post.photos[0])??"")
             return <Card path={URL.createObjectURL(post.photos[0])} desc={post.description} id={post.id} price={post.price} />
           })
         }

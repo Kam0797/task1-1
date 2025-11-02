@@ -15,7 +15,6 @@ export default function Product() {
   async function getThisPost() {
     if(!id) return
     const [post] = await getPostById(id)
-    console.log("2post: ", post)
     setActivePost(post)
   }
 

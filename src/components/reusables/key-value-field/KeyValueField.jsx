@@ -15,7 +15,6 @@ export default function KeyValueField({ initVal, index, setItems, isLastItem=fal
           onInput={(e) =>
             setItems((prev) =>
               prev.map((item, index) => {
-                console.log("eeee:", e.target.id)
                 if (e.target.id.match(/\d+$/)[0] == index)
                   return { key: e.target.value, value: item.value };
                 else return item;
@@ -32,7 +31,6 @@ export default function KeyValueField({ initVal, index, setItems, isLastItem=fal
           onInput={(e) =>
             setItems((prev) =>
               prev.map((item, index) => {
-                console.log("eefff:", e.target.id)
                 if (e.target.id.match(/\d+$/)[0] == index)
                   return { key: item.key, value: e.target.value };
                 else return item;

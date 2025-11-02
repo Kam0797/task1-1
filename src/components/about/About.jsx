@@ -25,17 +25,14 @@ export default function About() {
   } = useContext(Context);
 
   function handleNext() {
-    console.log("xxx")
     setScreen("entry2")
   }
 
   function handleBack() {
-    console.log("yyy")
     setScreen("home")
   }
 
   useEffect(()=> {
-    console.log("PICS",screen);
   },[screen])
 
   return (
