@@ -26,7 +26,6 @@ async function getFileFromUrl(url) {
 
 
 async function addPost(cleanData) {
-  console.log("type:", typeof cleanData);
 
 
   // const schema = new Map([
@@ -53,11 +52,10 @@ async function addPost(cleanData) {
 
   const {postname, description, photos, price, benefits, addlDetails, category} = cleanData;
 
-  // const photoBlobs = photos.map(async (photo) => await getFileFromUrl(photo));
 
   const photoBlobs = await Promise.all(photos.map(photo => {if(photo) return getFileFromUrl(photo)}))
 
-  const res = await postsDB.posts.put({
+  await postsDB.posts.put({
     postname: postname,
     description: description,
     photos: photoBlobs,
@@ -66,20 +64,18 @@ async function addPost(cleanData) {
     addlDetails: addlDetails,
     category: category
   })
-  console.log("res:",res)
+  // have a try/catch ?
 }
 
 
 async function getPosts(fifo=false) { //implement fifo
   
   const posts = await postsDB.posts.reverse().sortBy('id')
-  // console.log("posts::" ,posts)
   return posts;
 }
 
 async function getPostById(id) {
   const post = await postsDB.posts.where('id').equals(Number(id)).toArray()
-  console.log("onepost:", post)
   return post
 }
 
