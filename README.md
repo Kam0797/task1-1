@@ -11,3 +11,4 @@ Sample task
 ### possible improvements
 
 - form validation?
+- desktop UI?
