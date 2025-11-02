@@ -1,12 +1,14 @@
 
 .screen-wrapper {
   /* background-color: aqua; */
-  height: 100vh;
-  width: 100vw;
+  outline: 10px solid;
+  height: 100dvh;
+  width: 100dvw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .screen-title {
@@ -23,29 +25,35 @@
 }
 
 .back-button {
-  position: absolute;
-  left: 5px;
-  font-size: 1.5rem;
+  position: fixed;
+  left: 0.5rem;
+  top: 0.5rem;
+  display: flex;
+ /* font-size: 1.5rem; */
   font-weight: 300;
-  padding: 2px 11px;
-  background-color: #f0f1f3;
+  padding: 7px;
+  background-color: #f0f1f3aa;
   border-radius: 50px;
+  z-index: 3;
 }
 
 .content-area-wrapper {
   /* background-color: #2093fe; */
   width: 100dvw;
-  height: 100%;
+  height: 95%;
+  height: calc(100dvh + 4dvw - 55px);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .content-area {
-  border: 1px solid;
+  /* border: 1px solid; */
   width: calc(100% - 10dvw);
   height: calc(100% - 10dvw);
+  max-height: calc(100dvh - 14px - 20px - 1.1rem - 60px);
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 35px;
   scroll-behavior: smooth;
   overflow-y: auto;
@@ -62,5 +70,9 @@
   color: #fff;
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 3%;
+  /* margin-bottom: 3%; */
+  /* min-height: ; */
+}
+.space {
+  min-height: 14px;
 }

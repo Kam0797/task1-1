@@ -14,7 +14,8 @@ export default function TextField({ initVal, index, setItems, isLastItem=false }
           onInput={(e) =>
             setItems((prev) =>
               prev.map((item, index) => {
-                if (e.target.id.match(/\d+$/[0]) == index)
+                console.log("see", e.target.value, item, index, e.target.id.match(/\d+$/[0]))
+                if (e.target.id.match(/\d+$/)[0] == index)
                   return e.target.value;
                 else return item;
               })

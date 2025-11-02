@@ -7,6 +7,7 @@ export default defineConfig({
   build: {
     outDir: "docs"
   },
+  base: '/task1-1/',
   plugins: [react(), svgr()],
   css: {
     modules: {

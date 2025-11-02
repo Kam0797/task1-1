@@ -21,6 +21,7 @@
   font-size: 2.5rem;
   color: #2293fd;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .upload-buttons {
@@ -28,4 +29,11 @@
   justify-content: space-between;
   width: 100%;
 
+}
+
+.preview-pic {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }

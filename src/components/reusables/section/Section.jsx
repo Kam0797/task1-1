@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import styles from "./Section.module.css";
 // import TextField from '../text-field/TextField';
 
@@ -7,13 +7,18 @@ export default function Section({
   sectionDesc,
   Child,
   childValue,
+  state,
+  setState,
   addButtonLabel,
   children,
 }) {
-  const [items, setItems] = useState([childValue, childValue]);
+  // const [items, setItems] = useState([childValue, childValue]);
+  useEffect(()=> {
+    if(Array.isArray(state)) setState([childValue, childValue]);
+  },[])
 
   function addChild() {
-    setItems((prev) => [...prev, childValue]);
+    setState((prev) => [...prev, childValue]);
   }
 
   return (
@@ -28,14 +33,14 @@ export default function Section({
         </div>
         <div className={styles.sectionContent}>
           {children ??
-            items.map((item, index) => {
+            state.map((item, index) => {
               let isLastItem = false;
-              if(index == items.length-1) isLastItem = true;
+              if(index == state.length-1) isLastItem = true;
 
               return <Child
                 initVal={item}
                 index={`${sectionTitle}${index}`}
-                setItems={setItems}
+                setItems={setState}
                 isLastItem={isLastItem}
               />
 })}

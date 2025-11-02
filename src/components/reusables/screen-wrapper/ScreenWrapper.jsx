@@ -1,22 +1,22 @@
+import { LucideChevronLeft, LucidePlusCircle } from 'lucide-react'
 import styles from './ScreenWrapper.module.css'
 
 
-export default function ScreenWrapper({screenTitle="fook", nextButtonText="Next", nextFunc, children}) {
-  console.log("FFFFFFFFF", styles)
+export default function ScreenWrapper({screenTitle=null, nextButtonText="Next", nextFunc=null, backFunc=null, addFunc=null, children}) {
   
   
   return(
     <>
       <div className={styles.screenWrapper}>
-        <div className={styles.screenTitle}>{screenTitle}
-          <button className={styles.backButton}>{'<'}</button>
-        </div>
+        {screenTitle && <div className={styles.screenTitle}>{screenTitle}</div>}
+        {backFunc && <button className={styles.backButton} onClick={()=> backFunc()}>{<LucideChevronLeft />}</button>}
+        {addFunc && <button className={styles.backButton} onClick={()=> addFunc()}>{<LucidePlusCircle />}</button>}
         <div className={styles.contentAreaWrapper}>
           <div className={styles.contentArea}>
             {children}
           </div>
         </div>
-        <button className={styles.nextButton} onClick={nextFunc}>{nextButtonText}</button>
+        {nextFunc && <><button className={styles.nextButton} onClick={()=> nextFunc()}>{nextButtonText}</button><div className={styles.space}></div></>}
       </div>
     </>
   )
