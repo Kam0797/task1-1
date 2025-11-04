@@ -27,7 +27,7 @@ export default function Section({
         <div className={styles.sectionHead}>
           <div className={styles.sectionTitle}>{sectionTitle}</div>
           <div className={styles.sectionDesc}>{sectionDesc}</div>
-          <button className={styles.actionButton} onClick={() => addChild()}>
+          <button type="button" className={styles.actionButton} onClick={() => addChild()}>
             {addButtonLabel}
           </button>
         </div>

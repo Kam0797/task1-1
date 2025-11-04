@@ -52,6 +52,7 @@ async function addPost(cleanData) {
 
   const {postname, description, photos, price, benefits, addlDetails, category} = cleanData;
 
+  
 
   const photoBlobs = await Promise.all(photos.map(photo => {if(photo) return getFileFromUrl(photo)}))
 

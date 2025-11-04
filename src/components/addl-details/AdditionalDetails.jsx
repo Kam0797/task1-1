@@ -16,7 +16,10 @@ export default function AdditionalDetails() {
  
   const categoriesList = ["Category", ...categories]
 
-  async function handleNext() {
+  async function handleNext(e) {
+    console.log("from nextfunc")
+    e.preventDefault()
+
     //data saving code here
     const postData = {
       postname: name,
@@ -30,20 +33,21 @@ export default function AdditionalDetails() {
     await addPost(postData)
     setScreen("home")
   }
+  
   function handleBack() {
     setScreen("entry1")
   }
 
   return(
     <>{screen == "entry2" && (
-      <ScreenWrapper screenTitle='Additional Details' nextButtonText='Next' nextFunc={()=>handleNext()} backFunc={()=>handleBack()}>
+      <ScreenWrapper screenTitle='Additional Details' nextButtonText='Next' nextFunc={handleNext} backFunc={()=>handleBack()}>
         <Section sectionTitle='Benefits' Child={TextField} childValue='' state={benefits} setState={setBenefits} addButtonLabel='+ Add'>
 
         </Section>
         <Section sectionTitle='Additional Details' Child={KeyValueField} childValue={{key: "", value: ""}} state={addlDetails} setState={setAddlDetails} addButtonLabel="+ Add" >
 
         </Section>
-        <select className='text-input'value={category} ref={categoryRef} onChange={()=> setCategory(categoryRef.current.value)}>
+        <select className='text-input' required value={category} ref={categoryRef} onChange={()=> setCategory(categoryRef.current.value)}>
 
           {
             categoriesList.map((cat, index) => {

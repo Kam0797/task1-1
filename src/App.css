@@ -9,4 +9,9 @@
   border-radius: 7px;
   width: calc(100% );
   box-sizing: border-box;
+  
+}
+.text-input:focus {
+  outline: 1px solid #2093fe;
+  outline-offset: -2px;
 }
