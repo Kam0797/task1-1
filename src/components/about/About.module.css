@@ -1,5 +1,19 @@
 
-
+.desc {
+  min-height: 6.5rem;
+}
+.text-area-wrapper {
+  width: 100%;
+  position: relative;
+}
+.char-count {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  color: #788088;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
 .photo {
   opacity: 0;
   height: 5px;

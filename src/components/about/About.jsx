@@ -24,7 +24,14 @@ export default function About() {
     setScreen
   } = useContext(Context);
 
-  function handleNext() {
+  function handleNext(e) {
+    e.preventDefault()
+
+    const x = pics.some(pic => {
+      if(pic != null) return true
+    })
+    if(!x) return(alert("Select atleast one picture"))
+
     setScreen("entry2")
   }
 
@@ -47,20 +54,26 @@ export default function About() {
         <input
           type="text"
           className="text-input"
+          required
           placeholder="Name"
           value={name}
           ref={nameRef}
           onChange={(e) => setName(e.target.value)}
         />
+        <div className={styles.textAreaWrapper}>
         <textarea
-          className="text-input"
+          className={`text-input ${styles.desc}`}
+          required
+          maxLength={2000}
           placeholder="Description"
           value={description}
           ref={descriptionRef}
           onChange={(e) => setDescription(e.target.value)}
         />
+        <span className={styles.charCount}>{!description ? "2000" : `${description.length}/2000`}</span>
+        </div>
 
-        <Section sectionTitle="Upload Photos" sectionDesc="(Upto 5 photos)">
+        <Section sectionTitle="Cover Photos" sectionDesc="(Upload upto 5 photos)">
           <div className={styles.uploadButtons}>
             
 
@@ -95,7 +108,8 @@ export default function About() {
 
         <Section sectionTitle="Price" sectionDesc="">
           <input
-            type="text"
+            type="number"
+            required
             className="text-input"
             value={price}
             step="0.01"

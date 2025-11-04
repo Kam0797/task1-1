@@ -7,7 +7,7 @@ export default function ScreenWrapper({screenTitle=null, nextButtonText="Next", 
   
   return(
     <>
-      <div className={styles.screenWrapper}>
+      <form className={styles.screenWrapper} onSubmit={(e)=>nextFunc(e)}>
         {screenTitle && <div className={styles.screenTitle}>{screenTitle}</div>}
         {backFunc && <button className={styles.backButton} onClick={()=> backFunc()}>{<LucideChevronLeft />}</button>}
         {addFunc && <button className={styles.backButton} onClick={()=> addFunc()}>{<LucidePlusCircle />}</button>}
@@ -16,8 +16,8 @@ export default function ScreenWrapper({screenTitle=null, nextButtonText="Next", 
             {children}
           </div>
         </div>
-        {nextFunc && <><button className={styles.nextButton} onClick={()=> nextFunc()}>{nextButtonText}</button><div className={styles.space}></div></>}
-      </div>
+        {nextFunc && <><button type="submit" className={styles.nextButton} >{nextButtonText}</button><div className={styles.space}></div></>}
+      </form>
     </>
   )
 }
